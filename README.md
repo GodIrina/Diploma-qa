@@ -6,9 +6,9 @@
 
 [План автоматизации](https://github.com/GodIrina/Diploma-qa/blob/master/docs/Plan.md)
 
-Отчет по итогам тестирования
+[Отчетные документы по итогам тестирования](https://github.com/GodIrina/Diploma-qa/blob/master/docs/Report.md)
 
-Отчет по итогам документации 
+[Отчетные документы по итогам автоматизации](https://github.com/GodIrina/Diploma-qa/blob/master/docs/Summary.md)
 
 **Описание приложения: бизнес часть** 
 
