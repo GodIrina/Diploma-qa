@@ -1,4 +1,5 @@
 package ru.netology.web.test;
+
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -16,21 +17,24 @@ import static ru.netology.web.data.BdHelper.cleanDataBase;
 
 public class PaymentCardTest {
     @BeforeEach
-    void openPage(){
+    void openPage() {
         cleanDataBase();
         Configuration.holdBrowserOpen = true;
         open("http://localhost:8080");
     }
+
     @BeforeAll
-    static void setUpAll(){
+    static void setUpAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
+
     @AfterAll
-    static void tearDownAll(){
+    static void tearDownAll() {
         SelenideLogger.removeListener("allure");
     }
+
     @Nested
-    class shouldHappyPathForCardWithDifferentStatus{
+    class shouldHappyPathForCardWithDifferentStatus {
         @Test
         void shouldSuccessWithValidDebitCard() {
             val validCardInformation = DataHelper.getValidCardInformation();
@@ -39,6 +43,7 @@ public class PaymentCardTest {
             paymentPage.approved();
             assertEquals("APPROVED", BdHelper.getPurchaseByDebitCard());
         }
+
         @Test
         void shouldUnsuccessWithInvalidDebitCard() {
             val invalidCardInformation = DataHelper.getInvalidCardInformation();
@@ -48,8 +53,9 @@ public class PaymentCardTest {
             assertEquals("DECLINED", BdHelper.getPurchaseByDebitCard());
         }
     }
+
     @Nested
-    class shouldInvalidCardNumber {
+    class shouldInvalidCardNumberField {
         @Test
         void shouldGetNotificationEmptyFields() {
             val incorrectCardInfo = DataHelper.getInvalidCardDataIfEmptyAllFields();
