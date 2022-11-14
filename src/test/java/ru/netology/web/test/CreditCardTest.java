@@ -60,7 +60,7 @@ public class CreditCardTest {
     }
 
     @Nested
-    class shouldInvalidCardNumber {
+    class shouldInvalidCardNumberField {
         @Test
         void shouldGetNotificationEmptyFields() {
             val invalidCardInformation = DataHelper.getInvalidCardDataIfEmptyAllFields();
