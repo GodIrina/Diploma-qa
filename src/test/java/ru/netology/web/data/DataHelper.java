@@ -1,4 +1,5 @@
 package ru.netology.web.data;
+
 import com.github.javafaker.Faker;
 import lombok.Value;
 
@@ -74,7 +75,7 @@ public class DataHelper {
     }
 
     public static CardInfo getInvalidYearIfInTheFarFuture() {
-        return new CardInfo("4444 4444 4444 4441", monthWhenEndOfAction, "85", nameHolder, cvc);
+        return new CardInfo("4444 4444 4444 4441", monthWhenEndOfAction, "95", nameHolder, cvc);
     }
 
     public static CardInfo getInvalidNumberOfYearIfOneDigit() {

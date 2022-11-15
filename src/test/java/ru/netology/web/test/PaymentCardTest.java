@@ -16,6 +16,7 @@ import static ru.netology.web.data.BdHelper.cleanDataBase;
 
 
 public class PaymentCardTest {
+
     @BeforeEach
     void openPage() {
         cleanDataBase();
@@ -43,6 +44,7 @@ public class PaymentCardTest {
             paymentPage.approved();
             assertEquals("APPROVED", BdHelper.getPurchaseByDebitCard());
         }
+
 
         @Test
         void shouldUnsuccessWithInvalidDebitCard() {
@@ -246,4 +248,3 @@ public class PaymentCardTest {
         }
     }
 }
-

@@ -8,10 +8,33 @@ import static java.sql.DriverManager.getConnection;
 
 public class BdHelper {
     private static final String url = System.getProperty("db.url");
-    private static final String user = System.getProperty("db.username");
+    private static final String user = System.getProperty("db.user");
     private static final String password = System.getProperty("db.password");
 
     public BdHelper() {
+    }
+
+    public static void cleanDataBase() { //очистить Базу данных
+
+        val payment = "DELETE FROM payment_entity";
+        val credit = "DELETE FROM credit_request_entity";
+        val order = "DELETE FROM order_entity";
+
+
+        try (
+                val conn = getConnection(url, user, password);
+                val prepareStatCredit = conn.createStatement();
+                val prepareStatOrder = conn.createStatement();
+                val prepareStatPayment = conn.createStatement()
+        ) {
+            prepareStatCredit.executeUpdate(credit);
+            prepareStatOrder.executeUpdate(order);
+            prepareStatPayment.executeUpdate(payment);
+
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+
     }
 
     public static String getPurchaseByDebitCard() { //покупка по дебетовой карте
@@ -55,28 +78,4 @@ public class BdHelper {
     }
 
 
-    public static void cleanDataBase() { //очистить Базу данных
-
-        val payment = "DELETE FROM payment_entity";
-        val credit = "DELETE FROM credit_request_entity";
-        val order = "DELETE FROM order_entity";
-
-
-        try (
-                val conn = getConnection(url, user, password);
-                val prepareStatCredit = conn.createStatement();
-                val prepareStatOrder = conn.createStatement();
-                val prepareStatPayment = conn.createStatement()
-        ) {
-            prepareStatCredit.executeUpdate(credit);
-            prepareStatOrder.executeUpdate(order);
-            prepareStatPayment.executeUpdate(payment);
-
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        }
-
-    }
 }
-
-
