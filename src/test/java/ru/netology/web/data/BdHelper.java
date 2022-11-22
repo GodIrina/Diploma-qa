@@ -14,29 +14,6 @@ public class BdHelper {
     public BdHelper() {
     }
 
-    public static void cleanDataBase() { //очистить Базу данных
-
-        val payment = "DELETE FROM payment_entity";
-        val credit = "DELETE FROM credit_request_entity";
-        val order = "DELETE FROM order_entity";
-
-
-        try (
-                val conn = getConnection(url, user, password);
-                val prepareStatCredit = conn.createStatement();
-                val prepareStatOrder = conn.createStatement();
-                val prepareStatPayment = conn.createStatement()
-        ) {
-            prepareStatCredit.executeUpdate(credit);
-            prepareStatOrder.executeUpdate(order);
-            prepareStatPayment.executeUpdate(payment);
-
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        }
-
-    }
-
     public static String getPurchaseByDebitCard() { //покупка по дебетовой карте
         val statusBD = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
 
@@ -78,4 +55,26 @@ public class BdHelper {
     }
 
 
+    public static void cleanDataBase() { //очистить Базу данных
+
+        val payment = "DELETE FROM payment_entity";
+        val credit = "DELETE FROM credit_request_entity";
+        val order = "DELETE FROM order_entity";
+
+
+        try (
+                val conn = getConnection(url, user, password);
+                val prepareStatCredit = conn.createStatement();
+                val prepareStatOrder = conn.createStatement();
+                val prepareStatPayment = conn.createStatement()
+        ) {
+            prepareStatCredit.executeUpdate(credit);
+            prepareStatOrder.executeUpdate(order);
+            prepareStatPayment.executeUpdate(payment);
+
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+
+    }
 }
