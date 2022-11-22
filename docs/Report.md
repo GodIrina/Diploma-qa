@@ -7,12 +7,13 @@
 успешных - 34 тест-кейса
 неуспешных - 10 тест-кейсов
 
-Отчёт Gradle
+**Отчёт Gradle**
 
 ![image](https://user-images.githubusercontent.com/92928807/203386317-81a66f7c-f2d9-4c98-a1c7-02a06a485b91.png)
 
 
-Отчёт Allure
+**Отчёт Allure**
+
 ![image](https://user-images.githubusercontent.com/92928807/203386463-3a121405-7892-4cfd-adcb-b657419c04e5.png)
 ![image](https://user-images.githubusercontent.com/92928807/203386516-4cea9471-f612-4c1d-9382-c49677032d6b.png)
 ![image](https://user-images.githubusercontent.com/92928807/203386568-826ec638-d458-4198-a9b9-908069993d52.png)
